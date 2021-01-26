@@ -1,0 +1,25 @@
+<h2 class="mb-2">Usuarios registrados</h2>
+<table class="table text-white">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Correo</th>
+      <th scope="col">Validado</th>
+    </tr>
+  </thead>
+  <tbody id="cuerpo">
+      {{#each users}}
+        <tr>
+            <th class="numero"></th>
+            <th>{{this.nombre}}</th>
+            <th>{{this.email}}</th>
+            {{#if auth}}
+            <th><input type="checkbox" checked="checked" name="auth" onchange=autorizarUsuario(this,{{this.id}})></th>
+            {{else}}
+                <th><input type="checkbox" name="auth" onchange=autorizarUsuario(this,{{this.id}})></th>
+            {{/if}}
+        </tr>
+      {{/each}}
+  </tbody>
+</table>
